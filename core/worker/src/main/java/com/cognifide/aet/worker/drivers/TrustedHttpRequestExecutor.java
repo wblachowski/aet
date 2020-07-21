@@ -65,6 +65,7 @@ public class TrustedHttpRequestExecutor implements HttpRequestExecutor {
             .setHostnameVerifier(new AllowAllHostnameVerifier())
             .setSslcontext(trustAllSslContext())
             .setDefaultRequestConfig(buildRequestConfig(timeoutInMs))
+            .useSystemProperties()
             .build();
         CloseableHttpResponse response = httpClient.execute(request)) {
       Header[] headersArray = response.getAllHeaders();
